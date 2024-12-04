@@ -1,5 +1,7 @@
 # JavaScript's three pillars
 
+Core JavaScript can be divided into three pillars
+
 ## Types
 
 - Primitive Types
