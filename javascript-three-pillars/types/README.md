@@ -1,27 +1,91 @@
-> **In JavaScript everything is an object - false**. In JavaScript, variables don't have types values do.
+# What are Types
 
-In JavaScript types can be divided into two categories:
+Types in programming language defines the kind of data a variable can hold. In JavaScript types can be divided into two categories:
 
 ## Primitive Types
 
-- Primitive types represents the simplest kind of data and
-- They are **immutable** in nature means it cannot be changes once they are created.
-- Stored by value
+Primitive types are the fundamental types in JavaScript, they are immutable, primitive types can also behave like objects because of boxing.
 
-1. `undefined`
-2. `null`
-3. `string`
-4. `number`
-5. `boolean`
-6. `symbol`
-7. `bigInit`
+- `string`
+- `number`
+- `boolean`
+- `symbol`
+- `bigInt`
+- `undefined`
+- `null`
 
-## Object Type
+## Objects
 
-- Object types are complex form of data
-- They are **mutable** in nature
-- Stored by reference
+Objects include everything that is not a primitive, objects are mutable.
 
-1. Arrays
-2. Function
-3. Object and etc.
+Unlike languages like C++ and Java, In JavaScript and in other dynamically typed languages, it is not the variables that have types. .t is the values themselves that have types.
+
+# `typeof` operator
+
+`typeof` operator tells the type of the value, it always return string which describes the value's type.
+
+### "undefined"
+
+`typeof` operator returns "undefined" for variables that is not declared, declared but not assigned a value or explicitly set to undefined.
+
+<!-- prettier-ignore -->
+```js
+typeof x;       // "undefined"
+```
+
+`typeof` operator is the only operator in JavaScript that can reference a variable that is not exist or declared without throwing an error.
+
+### "object"
+
+<!-- prettier-ignore -->
+```js
+typeof { a: 1 };        // "object"
+typeof [1, 2, 3];       // "object"
+typeof null;            // "object"
+```
+
+### "boolean"
+
+<!-- prettier-ignore -->
+```js
+typeof true;            // "boolean"
+typeof false;           // "boolean"
+```
+
+### "number"
+
+<!-- prettier-ignore -->
+```js
+typeof 30;              // "number"
+typeof NaN;             // "number"
+typeof Infinity;        // "number"
+```
+
+### "bigint"
+
+<!-- prettier-ignore -->
+```js
+typeof 10n;             // "bigint"
+```
+
+### "string"
+
+<!-- prettier-ignore -->
+```js
+typeof "hello";         // "string"
+```
+
+### "symbol"
+
+<!-- prettier-ignore -->
+```js
+typeof Symbol("id");    // "symbol"
+```
+
+### "function"
+
+<!-- prettier-ignore -->
+```js
+typeof function() {};   // "function
+"
+```
