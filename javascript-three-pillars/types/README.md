@@ -30,12 +30,14 @@ Unlike languages like C++ and Java, In JavaScript and in other dynamically typed
 
 <!-- prettier-ignore -->
 ```js
-typeof x;       // "undefined"
+typeof x;               // "undefined"
 ```
 
 `typeof` operator is the only operator in JavaScript that can reference a variable that is not exist or declared without throwing an error.
 
 ### "object"
+
+typeof null is object - its a bug
 
 <!-- prettier-ignore -->
 ```js
@@ -53,6 +55,8 @@ typeof false;           // "boolean"
 ```
 
 ### "number"
+
+typeof NaN is "number"
 
 <!-- prettier-ignore -->
 ```js
@@ -86,6 +90,32 @@ typeof Symbol("id");    // "symbol"
 
 <!-- prettier-ignore -->
 ```js
-typeof function() {};   // "function
-"
+typeof function() {};   // "function"
 ```
+
+# undefined vs undeclared vs uninitialized (aka TDZ)
+
+### undefined
+
+`undefined` means there's definitely a variable but at the moment, it has no value or explicitly set to `undefined`.
+
+### undeclared
+
+<!-- prettier-ignore -->
+```js
+console.log(lang);      // ReferenceError: lang is not defined
+```
+
+`undeclared` means variable never been created JavaScript will throw a **ReferenceError** when you try to access it.
+
+### uninitialized
+
+<!-- prettier-ignore -->
+```js
+console.log(lang);      // ReferenceError: Cannot access 'lang' before initialization
+let lang = "JavaScript";
+```
+
+Certain variables like block scope, don't get initialized. They never initially get set to `undefined`.
+
+When you try to access uninitialized variable, JavaScript will throw a **ReferenceError: Cannot access 'variableName' before initialization**.
