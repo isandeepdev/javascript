@@ -130,11 +130,11 @@ Within those primitive types there are special values we should pay attention to
 
 NaN is a part of IEEE 754 standard under the category of special values and it represent the invalid number.
 
-- typeof NaN is number
+- `typeof` NaN is number
 - It usually occurs due invalid numeric operation or conversion fails.
 - NaN is the only value in JavaScript which is not equal to it itself.
 
-use Number.isNaN instead of ~~isNaN~~ because isNaN coerce the value to number before checking it for NaN.
+use `Number.isNaN` instead of ~~`isNaN`~~ because `isNaN` coerce the value to number before checking it for NaN.
 
 <!-- prettier-ignore -->
 ```js
@@ -144,4 +144,45 @@ isNaN("JavaScript");        // true
 <!-- prettier-ignore -->
 ```js
 Number.isNaN("JavaScript")  // false
+```
+
+### Negative Zero
+
+- Negative zero is a part of IEEE 754 standard
+- It represent zero with sign bit on
+
+Initially JavaScript felt that JavaScript developers would never want a Negative zero, so they went to extreme lengths to try to pretend that negative zero doesn't exist.
+
+<!-- prettier-ignore -->
+```js
+var trend = -0;
+trend === -0;               // true
+
+trend.toString();           // "0"
+trend === 0;                // true
+trend < 0;                  // false
+trend > 0;                  // false
+```
+
+Finally, in ES6 Object.is is introduced which check for Negative zero
+
+<!-- prettier-ignore -->
+```js
+Object.is(trend, -0);       // true
+Object.is(trend, 0);        // false
+```
+
+**Negative zero - practical use case in programming**
+
+<!-- prettier-ignore -->
+```js
+function formatTrend(trendRate) {
+    var direction = (trendRate < 0 || Object.is(trendRate, -0)) ? "⬇" : "⬆";
+    return `${direction} ${Math.abs(trendRate)}`
+}
+
+formatTrend(-5);            // "⬇ 5"
+formatTrend(5);             // "⬆ 5"
+formatTrend(-0);            // "⬇ 0"
+formatTrend(0);             // "⬆ 0"
 ```
