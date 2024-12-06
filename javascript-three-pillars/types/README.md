@@ -119,3 +119,29 @@ let lang = "JavaScript";
 Certain variables like block scope, don't get initialized. They never initially get set to `undefined`.
 
 When you try to access uninitialized variable, JavaScript will throw a **ReferenceError: Cannot access 'variableName' before initialization**.
+
+# Special Values
+
+Within those primitive types there are special values we should pay attention to.
+
+### NaN
+
+~~Not a Number~~ --> Invalid Number
+
+NaN is a part of IEEE 754 standard under the category of special values and it represent the invalid number.
+
+- typeof NaN is number
+- It usually occurs due invalid numeric operation or conversion fails.
+- NaN is the only value in JavaScript which is not equal to it itself.
+
+use Number.isNaN instead of ~~isNaN~~ because isNaN coerce the value to number before checking it for NaN.
+
+<!-- prettier-ignore -->
+```js
+isNaN("JavaScript");        // true
+```
+
+<!-- prettier-ignore -->
+```js
+Number.isNaN("JavaScript")  // false
+```
