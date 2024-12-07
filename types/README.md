@@ -4,7 +4,7 @@ Types in programming language defines the kind of data a variable can hold. In J
 
 ## Primitive Types
 
-Primitive types are the fundamental types in JavaScript, they are immutable, primitive types can also behave like objects because of boxing.
+Primitive types are the fundamental types in JavaScript, they are immutable, stored by value, primitive types can also behave like objects because of boxing.
 
 - `string`
 - `number`
@@ -14,11 +14,11 @@ Primitive types are the fundamental types in JavaScript, they are immutable, pri
 - `undefined`
 - `null`
 
-## Objects
+## Objects (Non-Primitive Types)
 
-Objects include everything that is not a primitive, objects are mutable.
+Objects include everything that is not a primitive, objects are mutable and stored by reference.
 
-Unlike languages like C++ and Java, In JavaScript and in other dynamically typed languages, it is not the variables that have types. .t is the values themselves that have types.
+👉 Unlike languages like C++ and Java, In JavaScript and in other dynamically typed languages, it is not the variables that have types. .t is the values themselves that have types.
 
 # `typeof` operator
 
