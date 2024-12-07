@@ -18,7 +18,7 @@ Primitive types are the fundamental types in JavaScript, they are immutable, sto
 
 Objects include everything that is not a primitive, objects are mutable and stored by reference.
 
-👉 Unlike languages like C++ and Java, In JavaScript and in other dynamically typed languages, it is not the variables that have types. .t is the values themselves that have types.
+👉 Unlike languages like C++ and Java, In JavaScript and in other dynamically typed languages, it is not the variables that have types. It is the values themselves that have types.
 
 # `typeof` operator
 

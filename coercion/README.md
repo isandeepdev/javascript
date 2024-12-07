@@ -88,6 +88,7 @@ When we used to ToNumber on a non-primitive it invokes the ToPrimitive with the 
 for any [] and {} by default valueOf() {return this}
 
 ```js
+[]                              0
 [""]                            0
 ["0"]                           0
 ["-0"]                          -0
@@ -113,4 +114,57 @@ null
 NaN
 false
 undefined
+```
+
+# Implicit Coercion
+
+## Boxing
+
+Boxing is the example of implicit coercion, JavaScript implicitly wrap primitive value in an object so that they can have access to properties and methods.
+
+```js
+const lang = "JavaScript";
+lang.length;
+```
+
+# Corner cases of Coercion
+
+<!-- prettier-ignore -->
+```js
+Number("");                         // 0            OOPS!
+Number("  \t\n");                   // 0            OOPS!
+Number(null);                       // 0            OOPS!
+Number(undefined);                  // NaN
+number([]);                         // 0            OOPS!
+Number([1,2,3]);                    // NaN
+Number([null]);                     // 0            OOPS!
+Number([undefined]);                // 0            OOPS!
+Number({});                         // NaN
+
+String(-0);                         // "0"          OOPS!
+String(null);                       // "null"
+String(undefined);                  // "undefined"
+String([null]);                     // ""           OOPS!
+String([undefined]);                // ""           OOPS!
+
+Boolean(new Boolean(false));        // true         OOPS!
+
+Number(true);                       // 1
+Number(false)                       // 0
+
+1 < 2;                              // true
+2 < 3;                              // true
+1 < 2 < 3;                          // true         but...
+
+(1 < 2) < 3;
+(true) < 3;
+1 < 3;                              // true
+
+3 < 2;                              // true
+2 > 1;                              // true
+3 > 2 > 1;                          // false        OOPS!
+
+(3 > 2) > 1;
+(true) > 1;
+1 > 1;                              // false
 ```
