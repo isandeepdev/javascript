@@ -106,9 +106,11 @@ Any value that is not a boolean and it used in a place that needs a boolean this
 
 Any value that is not falsy considered it as truthy
 
+```
 ""
 0, -0
 null
 NaN
 false
 undefined
+```
