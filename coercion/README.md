@@ -168,3 +168,7 @@ Number(false)                       // 0
 (true) > 1;
 1 > 1;                              // false
 ```
+
+# Philosophy of coercion
+
+A quality JavaScript program embraces coercions, makeing sure the types invloved in every operation are clear. Thus, corner cases are safely managed. **JavaScript's dynamic typing is not a weakness, it's one of its strong qualities**.
