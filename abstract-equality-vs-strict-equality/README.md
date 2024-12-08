@@ -28,4 +28,58 @@ If only if Type(x) and Type(y) does not matches, Abstract Equality Comparison al
 
 - If Type(x) is Object and Type(y) is either String or Number, return the result of the comparison ToPrimitive(x) == y.
 
+## Corner cases
+
+<!-- prettier-ignore -->
+```js
+42 == [42]                  // true
+
+42 == "42"
+42 == 42 
+```
+
+<!-- prettier-ignore -->
+```js
+[] == ![]                   // true
+
+// [] is truthy value so it evaluates to true and !true is false
+[] == false
+// because one value is non-ptimitive ToPrimitive will be applied
+"" == false
+// Abstract equality conversion prefer ToNumber
+0 == 0
+```
+
+<!-- prettier-ignore -->
+```js
+var students = []           // true
+
+// This is correct way of checking..
+if(students) {
+    // Yep
+}
+
+// [] == true
+// "" == true
+// 0 == 1
+if(students == true) {
+    // Nope
+}
+
+// [] == false
+// "" == false
+// 0 == 0
+if(students == false) {
+    // Yep
+}
+```
+
 ## Strict Equality Comparison
+
+Strict Equality Comparison return false if the types different for x and y.
+
+- undefined === undefined return true
+- null === null return true
+- NaN === NaN return false
+- +0 === -0 return true
+- -0 === 0 return true
