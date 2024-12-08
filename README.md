@@ -7,3 +7,5 @@ Primitive Types, Non-Primitive Types, `typeof` operatior, Special values like Na
 ## [Coercion](coercion/README.md)
 
 Abstract Operations: ToPrimitive, ToString, ToNumber and ToBoolean
+
+## [Abstract Equality Comparison vs Strict Equality Comparison](abstract-equality-vs-strict-equality/README.md)
